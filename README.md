@@ -32,15 +32,16 @@ Centralizar informações básicas e essenciais para pessoas imigrantes e refugi
    ```bash
    git clone https://github.com/Lizzamendez/migrante.git
    
-2.Abrir o arquivo index.html em um navegador
+ 2.Abrir o arquivo index.html em um navegador
+ 
 
-📚 Aprendizados
+## 📚 Aprendizados
 
 Desenvolvimento de páginas web com foco em acessibilidade e clareza
 Organização de conteúdo multilíngue
 Aplicação prática de HTML, CSS e JavaScript
 Planejamento de projeto com objetivo social
 
-📌 Observações
+## 📌 Observações
 
 Projeto desenvolvido de forma autoral como prática de desenvolvimento web, com foco em impacto social e aprendizado técnico contínuo.
