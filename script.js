@@ -40,9 +40,36 @@ backToTopButton.addEventListener('click', () => {
 
 // Lógica de Idiomas
 function setLanguage(lang) {
+    // Actualizar atributo lang del HTML
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
+    
+    // Ocultar todos los elementos de idioma
+    document.querySelectorAll('[class*="lang-"]').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    // Mostrar solo los del idioma seleccionado
+    const langCode = lang.split('-')[0]; // pt-BR → pt
+    document.querySelectorAll(`.lang-${langCode}`).forEach(el => {
+        el.style.display = ''; // Mostrar (resetear display)
+    });
+    
+    // Actualizar estado visual de los botones
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.setAttribute('aria-pressed', 'false');
+        btn.style.opacity = '0.7';
+    });
+    const activeBtn = document.querySelector(`.lang-btn[onclick*="${lang}"]`);
+    if (activeBtn) {
+        activeBtn.setAttribute('aria-pressed', 'true');
+        activeBtn.style.opacity = '1';
+        activeBtn.style.fontWeight = 'bold';
+    }
 }
-// Cargar idioma guardado
-const savedLang = localStorage.getItem('lang');
-if (savedLang) document.documentElement.lang = savedLang;
+
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'pt-BR';
+    setLanguage(savedLang);
+});
