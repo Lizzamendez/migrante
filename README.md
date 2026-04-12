@@ -1,47 +1,89 @@
-# Migrante
+# 🌍 Migrante
 
 Plataforma web informativa destinada a imigrantes e refugiados no Brasil, com conteúdo apresentado em três idiomas para ampliar acessibilidade e compreensão.
 
-## 🎯 Objetivo
-Centralizar informações básicas e essenciais para pessoas imigrantes e refugiadas, facilitando o acesso a orientações iniciais sobre direitos, serviços e adaptação no Brasil.
+> *Construí esse projeto porque fui imigrante e senti na pele a falta dessas informações quando cheguei ao Brasil.*
 
-## 🌍 Público-alvo
+---
+
+## 🎯 Objetivo
+
+Centralizar informações básicas e essenciais para pessoas imigrantes e refugiadas, facilitando o acesso a orientações iniciais sobre direitos, serviços e adaptação no Brasil — em português, espanhol e inglês.
+
+---
+
+## 👥 Público-alvo
+
 - Imigrantes recém-chegados
 - Refugiados
 - Pessoas em processo de regularização no Brasil
 
+---
+
 ## 🛠️ Tecnologias Utilizadas
-- HTML
-- CSS
-- JavaScript
-- Git e GitHub para versionamento
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+
+- **HTML** — estrutura semântica do conteúdo
+- **CSS** — estilização e responsividade
+- **JavaScript** — comportamento e interatividade
+- **Git/GitHub** — versionamento e controle de alterações
+
+---
 
 ## ⚙️ Funcionalidades
-- Conteúdo informativo apresentado em **três idiomas**
+
+- Conteúdo informativo em três idiomas (português, espanhol e inglês)
 - Navegação simples e acessível
-- Estrutura responsiva para diferentes dispositivos
+- Layout responsivo para diferentes dispositivos
 - Organização clara das seções de informação
 
+---
+
 ## 🧠 Decisões Técnicas
-- Estruturação do conteúdo de forma modular para facilitar manutenção e expansão
-- Separação entre estrutura (HTML), estilo (CSS) e comportamento (JavaScript)
-- Uso de versionamento para controle de alterações e evolução do projeto
+
+- Conteúdo estruturado de forma modular para facilitar manutenção e expansão futura
+- Separação clara entre estrutura (HTML), estilo (CSS) e comportamento (JavaScript)
+- Foco em acessibilidade e legibilidade para públicos com diferentes níveis de familiaridade digital
+
+---
 
 ## 🚀 Como Executar
-1. Clonar o repositório:
-   ```bash
-   git clone https://github.com/Lizzamendez/migrante.git
-   
- 2.Abrir o arquivo index.html em um navegador
- 
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Lizzamendez/migrante.git
+```
+
+2. Abra o arquivo `index.html` diretamente no navegador — sem necessidade de servidor ou instalação.
+
+---
 
 ## 📚 Aprendizados
 
-Desenvolvimento de páginas web com foco em acessibilidade e clareza
-Organização de conteúdo multilíngue
-Aplicação prática de HTML, CSS e JavaScript
-Planejamento de projeto com objetivo social
+- Desenvolvimento web com foco em acessibilidade e clareza
+- Organização de conteúdo multilíngue
+- Aplicação prática de HTML, CSS e JavaScript
+- Como transformar uma experiência pessoal em um projeto com impacto social real
 
-## 📌 Observações
+---
 
-Projeto desenvolvido de forma autoral como prática de desenvolvimento web, com foco em impacto social e aprendizado técnico contínuo.
+## 🔮 Próximos Passos
+
+- [ ] Adicionar mais recursos e links úteis por categoria
+- [ ] Melhorar a alternância de idiomas com JavaScript
+- [ ] Implementar deploy para acesso online sem necessidade de clone
+
+---
+
+## 👩‍💻 Autora
+
+**Lizza Maria Mendez Leguizamon**  
+Desenvolvedora em formação | Imigrante paraguaia em São Paulo  
+[GitHub](https://github.com/Lizzamendez) · [LinkedIn](#)
+
+---
+
+*Projeto autoral desenvolvido como prática de desenvolvimento web, com foco em impacto social e aprendizado técnico contínuo.*
