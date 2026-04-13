@@ -80,12 +80,10 @@ git clone https://github.com/Lizzamendez/migrante.git
 
 ## 👩‍💻 Autora
 
-**Lizza Maria Mendez Leguizamon**  
-Desenvolvedora em formação | Imigrante paraguaia em São Paulo  
+**Lizza Mendez**  
+Desenvolvedora em formação | Imigrante em São Paulo  
 [GitHub](https://github.com/Lizzamendez) · [LinkedIn](#)
 
 ---
 
 *Projeto autoral desenvolvido como prática de desenvolvimento web, com foco em impacto social e aprendizado técnico contínuo.*
-
-MIT License o CC BY-SA 4.0 (recomendado para contenido educativo)
