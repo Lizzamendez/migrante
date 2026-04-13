@@ -1,4 +1,4 @@
-<!DOCTYPE html>     
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -10,252 +10,269 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Accesibilidad: Enlace para saltar navegación -->
     <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
     <header>
-        <h1 class="lang-pt">Nosso Espaço: Apoio a Imigrantes e Refugiados</h1>
-        <h1 class="lang-es">Nuestro Espacio: Apoyo a Inmigrantes y Refugiados</h1>
-        <h1 class="lang-en">Our Space: Support for Immigrants and Refugees</h1>
-        
-        <p class="lang-pt">Guia Rápido para Novos Começos!</p>
-        <p class="lang-es">¡Guía Rápida para Nuevos Comienzos!</p>
-        <p class="lang-en">Quick Guide for New Beginnings!</p>
-        
-        <button id="theme-toggle" aria-label="Alternar tema escuro e claro">🌙 Modo Escuro</button>
-        
-        <div style="margin-top: 10px;">
-            <button class="lang-btn" onclick="setLanguage('pt-BR')">PT</button>
-            <button class="lang-btn" onclick="setLanguage('es')">ES</button>
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        <!-- ✅ Um único h1 real; os outros são spans controlados por CSS/JS -->
+        <h1 id="site-title">
+            <span class="lang-pt">Nosso Espaço: Apoio a Imigrantes e Refugiados</span>
+            <span class="lang-es" hidden>Nuestro Espacio: Apoyo a Inmigrantes y Refugiados</span>
+            <span class="lang-en" hidden>Our Space: Support for Immigrants and Refugees</span>
+        </h1>
+
+        <p>
+            <span class="lang-pt">Guia Rápido para Novos Começos!</span>
+            <span class="lang-es" hidden>¡Guía Rápida para Nuevos Comienzos!</span>
+            <span class="lang-en" hidden>Quick Guide for New Beginnings!</span>
+        </p>
+
+        <button id="theme-toggle" aria-label="Alternar tema escuro e claro">
+            🌙 Modo Escuro
+        </button>
+
+        <!-- ✅ aria-pressed inicial definido aqui, não só pelo JS -->
+        <div role="group" aria-label="Selecionar idioma" style="margin-top: 10px;">
+            <button class="lang-btn" onclick="setLanguage('pt-BR')" aria-pressed="true"  lang="pt">PT</button>
+            <button class="lang-btn" onclick="setLanguage('es')"    aria-pressed="false" lang="es">ES</button>
+            <button class="lang-btn" onclick="setLanguage('en')"    aria-pressed="false" lang="en">EN</button>
         </div>
     </header>
 
-    <nav>
-            <a href="#dicas00">
-                <span class="lang-pt">Cultura</span><span class="lang-es">Cultura</span><span class="lang-en">Culture</span>
-            </a>
-            <a href="#dicas01">
-                <span class="lang-pt">Documentação</span><span class="lang-es">Documentación</span><span class="lang-en">Documentation</span>
-            </a>
-            <a href="#dicas02">
-                <span class="lang-pt">Saúde</span><span class="lang-es">Salud</span><span class="lang-en">Health</span>
-            </a>
-            <a href="#dicas03">
-                <span class="lang-pt">Educação</span><span class="lang-es">Educación</span><span class="lang-en">Education</span>
-            </a>
-            <a href="#dicas04">
-                <span class="lang-pt">Trabalho</span><span class="lang-es">Trabajo</span><span class="lang-en">Work</span>
-            </a>
-            <a href="#dicas05">
-                <span class="lang-pt">Transporte</span><span class="lang-es">Transporte</span><span class="lang-en">Transport</span>
-            </a>
+    <!-- ✅ aria-label para identificar esta nav entre outras possíveis -->
+    <nav aria-label="Seções principais">
+        <a href="#dicas00">
+            <span class="lang-pt">Cultura</span>
+            <span class="lang-es" hidden>Cultura</span>
+            <span class="lang-en" hidden>Culture</span>
+        </a>
+        <a href="#dicas01">
+            <span class="lang-pt">Documentação</span>
+            <span class="lang-es" hidden>Documentación</span>
+            <span class="lang-en" hidden>Documentation</span>
+        </a>
+        <a href="#dicas02">
+            <span class="lang-pt">Saúde</span>
+            <span class="lang-es" hidden>Salud</span>
+            <span class="lang-en" hidden>Health</span>
+        </a>
+        <a href="#dicas03">
+            <span class="lang-pt">Educação</span>
+            <span class="lang-es" hidden>Educación</span>
+            <span class="lang-en" hidden>Education</span>
+        </a>
+        <a href="#dicas04">
+            <span class="lang-pt">Trabalho</span>
+            <span class="lang-es" hidden>Trabajo</span>
+            <span class="lang-en" hidden>Work</span>
+        </a>
+        <a href="#dicas05">
+            <span class="lang-pt">Transporte</span>
+            <span class="lang-es" hidden>Transporte</span>
+            <span class="lang-en" hidden>Transport</span>
+        </a>
     </nav>
 
-    <!-- Semántica: Define el contenido principal -->
     <main id="conteudo-principal">
-    <section id="dicas00">
-        <div class="image-container">
-            <img src="img/brasil.jpeg" alt="Diferenças culturais">
-        </div>
-        <div class="text-container">
-            <h2><span class="lang-pt">1. Diferenças culturais</span><span class="lang-es">1. Diferencias culturales</span><span class="lang-en">1. Cultural Differences</span></h2>
-            <p class="lang-pt">O Brasil é um país diverso e acolhedor, mas cada região tem suas próprias expressões, comidas típicas e costumes. Um "bom dia" e um sorriso podem abrir portas!</p>
-            <p class="lang-es">Brasil es un país diverso y acogedor, pero cada región tiene sus propias expresiones, comidas típicas y costumbres. ¡Un "buen día" y una sonrisa pueden abrir puertas!</p>
-            <p class="lang-en">Brazil is a diverse and welcoming country, but each region has its own expressions, typical foods, and customs. A "good morning" and a smile can open doors!</p>
-            
-            <p class="lang-pt">É comum abraçar ou beijar no rosto ao cumprimentar, dependendo da região. Além disso, o brasileiro costuma ser muito informal, mesmo em situações profissionais, o que pode parecer estranho a princípio.</p>
-            <p class="lang-es">Es común abrazar o besar en la mejilla al saludar, dependiendo de la región. Además, los brasileños suelen ser muy informales, incluso en situaciones profesionales.</p>
-            <p class="lang-en">It is common to hug or kiss on the cheek when greeting, depending on the region. Also, Brazilians tend to be very informal, even in professional situations.</p>
-        </div>
-    </section>
 
-    <section id="dicas01">
-        <div class="image-container">
-            <img src="img/doc.jpg" alt="Documentação: CPF,RNM">
-        </div>
-        <div class="text-container">
-            <h2>2. Documentação</h2>
-            <p>A documentação no Brasil é fundamental para garantir o acesso a diversos serviços e direitos.</p>
-            <p>O CPF (Cadastro de Pessoa Física) é essencial para realizar tarefas como abrir contas bancárias, declarar impostos e fazer compras importantes. 
-               <a href="https://servicos.receita.fazenda.gov.br/servicos/cpf/inscricaocpfestrangeiro/default.asp" target="_blank">Solicite seu CPF aqui</a>.</p>
-            <p>O RNM (Registro Nacional Migratório) é um documento obrigatório para estrangeiros residentes no Brasil, servindo como identificação oficial. 
-               <a href="https://servicos.dpf.gov.br/sismigra-internet/home.seam" target="_blank">Solicite seu RNM aqui</a>.</p>
-            <p>A CLT (Consolidação das Leis do Trabalho) é a principal legislação trabalhista do Brasil. Todo trabalhador tem direitos garantidos como salário mínimo, férias remuneradas, 13º salário e FGTS. Para trabalhar formalmente, você precisará de uma Carteira de Trabalho Digital, que pode ser acessada através do aplicativo ou 
-               <a href="https://www.gov.br/pt-br/temas/carteira-de-trabalho-digital" target="_blank">Solicitar aqui</a>.</p>
-            <p>Para mais informações sobre documentação para migrantes, visite o 
-               <a href="https://www.gov.br/pt-br/servicos/registrar-se-como-estrangeiro-no-brasil" target="_blank">Portal de Serviços do Governo</a>.</p>
-        </div>
-    </section>
-
-    <section id="dicas02">
-        <div class="image-container">
-            <img src="img/saude.jpeg" alt="Saúde: Sistema Único de Saúde (SUS)">
-        </div>
-        <div class="text-container">
-            <h2>3. Saúde: Sistema Único de Saúde (SUS)</h2>
-            <p>O SUS é o sistema público de saúde do Brasil, oferecendo atendimento médico gratuito a todos os 
-                cidadãos e residentes. É importante se cadastrar no SUS para ter acesso a consultas, exames e 
-                medicamentos.</p>
-            <p>Além disso, é recomendável ter um plano de saúde privado, especialmente em casos de 
-                emergência ou para serviços especializados.</p>
-            <p>Links úteis para o SUS:</p>
-            <ul>
-                <li><a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-conseguir-o-cartao-sus" target="_blank">Solicitar Cartão SUS</a></li>
-                <li><a href="https://www.gov.br/pt-br/servicos/acessar-a-rede-publica-de-saude" target="_blank">Acessar a Rede Pública de Saúde</a></li>
-                <li><a href="https://meususdigital.saude.gov.br/login" target="_blank">Meu SUS Digital</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="dicas03">
-        <div class="image-container">
-            <img src="img/educa.jpeg" alt="Educação e idiomas">
-        </div>
-        <div class="text-container">
-            <h2>4. Educação e idiomas</h2>
-            <p>O Brasil possui um sistema educacional diversificado, com escolas públicas e privadas. 
-                É importante pesquisar sobre as opções disponíveis na sua região.</p>
-            <p>O ENCCEJA é um exame gratuito para jovens e adultos que não concluíram os estudos na idade apropriada. Através dele, você pode obter certificação de Ensino Fundamental ou Médio.</p>
-            <p>O ENEM é a principal porta de entrada para universidades públicas e privadas no Brasil. Migrantes podem participar e concorrer a vagas e bolsas de estudo através de programas como PROUNI e SISU.</p>
-            <p>Além disso, aprender o idioma local é fundamental para se integrar à 
-                comunidade e aproveitar ao máximo a experiência de viver no Brasil.</p>
-            <p>Recursos úteis para sua educação:</p>
-            <ul>
-                <li><a href="https://educacao.sme.prefeitura.sp.gov.br/solicitacao-de-vaga-e-matricula/" target="_blank">Solicitação de vaga e matrícula</a></li>
-                <li><a href="https://www.gov.br/mec/pt-br" target="_blank">Ministério da Educação (MEC)</a></li>
-                <li><a href="https://capital.sp.gov.br/w/noticia/prefeitura-de-sao-paulo-oferece-curso-de-lingua-portuguesa-gratuito-para-imigrantes-1" target="_blank">Cursos de Português para Estrangeiros</a></li>
-                <li><a href="https://www.gov.br/pt-br/servicos/reconhecer-ou-revalidar-diploma-de-curso-superior-obtido-no-exterior" target="_blank">Revalidação de Diplomas Estrangeiros</a></li>
-                <li><a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/encceja" target="_blank">ENCCEJA - Certificação para Jovens e Adultos</a></li>
-                <li><a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank">ENEM - Exame Nacional do Ensino Médio</a></li>
-            </ul>
-        </div>  
-    </section>
-
-    <section id="dicas04">
-        <div class="image-container">
-            <img src="img/trabajo.jpeg" alt="Emprego: Oportunidades e desafios">
-        </div>
-        <div class="text-container">
-            <h2>5. Emprego: Oportunidades e desafios</h2>
-            <p>O mercado de trabalho no Brasil pode ser desafiador, especialmente para estrangeiros.
-                 É importante ter um currículo atualizado e estar preparado para entrevistas.</p>
-            <p>Além disso, aprender o idioma local é fundamental para se destacar no mercado de trabalho.</p>
-            <p>Recursos úteis para busca de emprego:</p>
-            <ul>
-                <li><a href="https://www.gov.br/pt-br/servicos/obter-a-carteira-de-trabalho" target="_blank">Solicitar Carteira de Trabalho Digital</a></li>
-                <li><a href="https://empregabrasil.mte.gov.br" target="_blank">Portal Emprega Brasil</a></li>
-            </ul>
-            <p>Dicas importantes:</p>
-            <ul>
-                <li>Mantenha seus documentos em dia (RNM, CPF, CTPS)</li>
-                <li>Faça networking e participe de grupos profissionais</li>
-                <li>Considere fazer cursos de capacitação profissional</li>
-                <li>Busque validar seus diplomas e certificações estrangeiras</li>
-            </ul>
-            <p>Para migrantes empreendedores:</p>
-            <ul>
-                <li><a href="https://www.sebrae.com.br" target="_blank">SEBRAE - Apoio a Pequenos Negócios</a></li>
-                <li><a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank">Portal do Empreendedor - MEI</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="dicas05">
-        <div class="image-container">
-            <img src="img/transporte.jpeg" alt="Transporte: Opções e dicas">
-        </div>
-        <div class="text-container">
-            <h2>6. Transporte: Opções e dicas</h2>
-            <p>O Brasil possui um sistema de transporte diversificado, com ônibus, metrôs e trens. É importante conhecer as opções disponíveis na sua região e como utilizá-las.</p>
-            <p>Além disso, é recomendável ter um cartão de transporte para facilitar o pagamento das tarifas.</p>
-            <p>Recursos úteis para transporte:</p>
-            <ul>
-                <li><a href="https://bilheteunico.sptrans.com.br/" target="_blank">Bilhete Único - São Paulo</a></li>
-                <li><a href="https://www.metro.sp.gov.br/" target="_blank">Metrô de São Paulo</a></li>
-                <li><a href="https://www.cptm.sp.gov.br/" target="_blank">CPTM - Trens Metropolitanos</a></li>
-                <li><a href="https://www.emtu.sp.gov.br/" target="_blank">EMTU - Ônibus Intermunicipais</a></li>
-            </ul>
-            <p>Dicas importantes:</p>
-            <ul>
-                <li>Baixe aplicativos de transporte público da sua cidade</li>
-                <li>Mantenha sempre créditos no seu cartão de transporte</li>
-                <li>Verifique os horários de funcionamento do transporte público</li>
-                <li>Em grandes cidades, evite horários de pico se possível</li>
-            </ul>
-            <p>Para viagens interestaduais:</p>
-            <ul>
-                <li><a href="https://www.clickbus.com.br" target="_blank">ClickBus - Passagens Rodoviárias</a></li>
-                <li><a href="https://www.buscaonibus.com.br" target="_blank">Busca Ônibus - Comparador de Preços</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="ongs" class="ong-section">
-        <h2>ONGs de Apoio a Migrantes</h2>
-        <div class="ong-buttons">
-            <a href="https://www.caritas.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">Cáritas Brasil</span>
-                <span class="ong-description">Assistência humanitária e apoio a refugiados</span>
-            </a>
-            
-            <a href="https://www.migrante.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">Centro de Apoio ao Migrante</span>
-                <span class="ong-description">Orientação jurídica e social</span>
-            </a>
-            
-            <a href="https://www.adus.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">ADUS - Instituto de Reintegração</span>
-                <span class="ong-description">Integração laboral e cultural</span>
-            </a>
-            
-            <a href="https://www.missaopaz.org/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">Missão Paz</span>
-                <span class="ong-description">Apoio integral a migrantes</span>
-            </a>
-
-            <a href="https://www.acnur.org/portugues/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">ACNUR Brasil</span>
-                <span class="ong-description">Alto Comissariado da ONU para Refugiados</span>
-            </a>
-
-            <a href="https://educacaosemfronteiras.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
-                <span class="ong-name">Educação Sem Fronteiras</span>
-                <span class="ong-description">Apoio educacional para migrantes</span>
-            </a>
-        </div>
-    </section>
-
-    <section id="contato" class="contact-section">
-        <h2>Fale Conosco</h2>
-        <p>Tem dúvidas ou sugestões? Envie uma mensagem!</p>
-        <form action="#" method="post" class="contact-form">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        <section id="dicas00" aria-labelledby="titulo-cultura">
+            <div class="image-container">
+                <!-- ✅ width/height evitam layout shift -->
+                <img src="img/brasil.jpeg" alt="Pessoas se cumprimentando com abraço, representando a cultura brasileira" width="500" height="281">
             </div>
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            <div class="text-container">
+                <h2 id="titulo-cultura">
+                    <span class="lang-pt">1. Diferenças culturais</span>
+                    <span class="lang-es" hidden>1. Diferencias culturales</span>
+                    <span class="lang-en" hidden>1. Cultural Differences</span>
+                </h2>
+                <p class="lang-pt">O Brasil é um país diverso e acolhedor, mas cada região tem suas próprias expressões, comidas típicas e costumes. Um "bom dia" e um sorriso podem abrir portas!</p>
+                <p class="lang-es" hidden>Brasil es un país diverso y acogedor, pero cada región tiene sus propias expresiones, comidas típicas y costumbres. ¡Un "buen día" y una sonrisa pueden abrir puertas!</p>
+                <p class="lang-en" hidden>Brazil is a diverse and welcoming country, but each region has its own expressions, typical foods, and customs. A "good morning" and a smile can open doors!</p>
+
+                <p class="lang-pt">É comum abraçar ou beijar no rosto ao cumprimentar, dependendo da região. Além disso, o brasileiro costuma ser muito informal, mesmo em situações profissionais.</p>
+                <p class="lang-es" hidden>Es común abrazar o besar en la mejilla al saludar, dependiendo de la región. Además, los brasileños suelen ser muy informales, incluso en situaciones profesionales.</p>
+                <p class="lang-en" hidden>It is common to hug or kiss on the cheek when greeting, depending on the region. Also, Brazilians tend to be very informal, even in professional situations.</p>
             </div>
-            <div class="form-group">
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+        </section>
+
+        <section id="dicas01" aria-labelledby="titulo-doc">
+            <div class="image-container">
+                <img src="img/doc.jpg" alt="Documentos oficiais: CPF e RNM" width="500" height="281">
             </div>
-            <button type="submit" class="submit-button">Enviar Mensagem</button>
-        </form>
-    </section>
+            <div class="text-container">
+                <h2 id="titulo-doc">2. Documentação</h2>
+                <p>A documentação no Brasil é fundamental para garantir o acesso a diversos serviços e direitos.</p>
+                <p>O <abbr title="Cadastro de Pessoa Física">CPF</abbr> é essencial para abrir contas bancárias, declarar impostos e fazer compras importantes.
+                    <a href="https://servicos.receita.fazenda.gov.br/servicos/cpf/inscricaocpfestrangeiro/default.asp" target="_blank" rel="noopener noreferrer">Solicite seu CPF aqui</a>.
+                </p>
+                <p>O <abbr title="Registro Nacional Migratório">RNM</abbr> é o documento de identificação oficial para estrangeiros residentes no Brasil.
+                    <a href="https://servicos.dpf.gov.br/sismigra-internet/home.seam" target="_blank" rel="noopener noreferrer">Solicite seu RNM aqui</a>.
+                </p>
+                <p>A <abbr title="Consolidação das Leis do Trabalho">CLT</abbr> garante direitos como salário mínimo, férias e 13º salário. Para trabalhar formalmente, você precisa da Carteira de Trabalho Digital:
+                    <a href="https://www.gov.br/pt-br/temas/carteira-de-trabalho-digital" target="_blank" rel="noopener noreferrer">Solicitar aqui</a>.
+                </p>
+                <p>Para mais informações, visite o
+                    <a href="https://www.gov.br/pt-br/servicos/registrar-se-como-estrangeiro-no-brasil" target="_blank" rel="noopener noreferrer">Portal de Serviços do Governo</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="dicas02" aria-labelledby="titulo-saude">
+            <div class="image-container">
+                <img src="img/saude.jpeg" alt="Profissional de saúde atendendo paciente no SUS" width="500" height="281">
+            </div>
+            <div class="text-container">
+                <h2 id="titulo-saude">3. Saúde: Sistema Único de Saúde (<abbr title="Sistema Único de Saúde">SUS</abbr>)</h2>
+                <p>O SUS oferece atendimento médico gratuito a todos os cidadãos e residentes. Cadastre-se para ter acesso a consultas, exames e medicamentos.</p>
+                <p>Para serviços especializados ou emergências, considere também um plano de saúde privado.</p>
+                <ul>
+                    <li><a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/faq/tematicos-e-outros/como-conseguir-o-cartao-sus" target="_blank" rel="noopener noreferrer">Solicitar Cartão SUS</a></li>
+                    <li><a href="https://www.gov.br/pt-br/servicos/acessar-a-rede-publica-de-saude" target="_blank" rel="noopener noreferrer">Acessar a Rede Pública de Saúde</a></li>
+                    <li><a href="https://meususdigital.saude.gov.br/login" target="_blank" rel="noopener noreferrer">Meu SUS Digital</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dicas03" aria-labelledby="titulo-edu">
+            <div class="image-container">
+                <img src="img/educa.jpeg" alt="Estudantes em sala de aula" width="500" height="281">
+            </div>
+            <div class="text-container">
+                <h2 id="titulo-edu">4. Educação e idiomas</h2>
+                <p>O Brasil tem escolas públicas e privadas. Pesquise as opções disponíveis na sua região.</p>
+                <p>O <abbr title="Exame Nacional para Certificação de Competências de Jovens e Adultos">ENCCEJA</abbr> é gratuito e permite obter certificação de Ensino Fundamental ou Médio.</p>
+                <p>O <abbr title="Exame Nacional do Ensino Médio">ENEM</abbr> é a porta de entrada para universidades. Migrantes podem concorrer a vagas via PROUNI e SISU.</p>
+                <p>Aprender português é fundamental para se integrar e aproveitar ao máximo a vida no Brasil.</p>
+                <ul>
+                    <li><a href="https://educacao.sme.prefeitura.sp.gov.br/solicitacao-de-vaga-e-matricula/" target="_blank" rel="noopener noreferrer">Solicitação de vaga e matrícula</a></li>
+                    <li><a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener noreferrer">Ministério da Educação (MEC)</a></li>
+                    <li><a href="https://capital.sp.gov.br/w/noticia/prefeitura-de-sao-paulo-oferece-curso-de-lingua-portuguesa-gratuito-para-imigrantes-1" target="_blank" rel="noopener noreferrer">Cursos de Português para Estrangeiros</a></li>
+                    <li><a href="https://www.gov.br/pt-br/servicos/reconhecer-ou-revalidar-diploma-de-curso-superior-obtido-no-exterior" target="_blank" rel="noopener noreferrer">Revalidação de Diplomas Estrangeiros</a></li>
+                    <li><a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/encceja" target="_blank" rel="noopener noreferrer">ENCCEJA</a></li>
+                    <li><a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank" rel="noopener noreferrer">ENEM</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dicas04" aria-labelledby="titulo-trabalho">
+            <div class="image-container">
+                <img src="img/trabajo.jpeg" alt="Pessoas em ambiente de trabalho" width="500" height="281">
+            </div>
+            <div class="text-container">
+                <h2 id="titulo-trabalho">5. Emprego: Oportunidades e desafios</h2>
+                <p>O mercado de trabalho pode ser desafiador para estrangeiros. Mantenha o currículo atualizado e pratique português para entrevistas.</p>
+                <ul>
+                    <li><a href="https://www.gov.br/pt-br/servicos/obter-a-carteira-de-trabalho" target="_blank" rel="noopener noreferrer">Solicitar Carteira de Trabalho Digital</a></li>
+                    <li><a href="https://empregabrasil.mte.gov.br" target="_blank" rel="noopener noreferrer">Portal Emprega Brasil</a></li>
+                </ul>
+                <p>Dicas importantes:</p>
+                <ul>
+                    <li>Mantenha seus documentos em dia (RNM, CPF, CTPS)</li>
+                    <li>Faça networking e participe de grupos profissionais</li>
+                    <li>Considere cursos de capacitação profissional</li>
+                    <li>Valide seus diplomas e certificações estrangeiras</li>
+                </ul>
+                <p>Para migrantes empreendedores:</p>
+                <ul>
+                    <li><a href="https://www.sebrae.com.br" target="_blank" rel="noopener noreferrer">SEBRAE - Apoio a Pequenos Negócios</a></li>
+                    <li><a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor - MEI</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dicas05" aria-labelledby="titulo-transporte">
+            <div class="image-container">
+                <img src="img/transporte.jpeg" alt="Metrô e ônibus urbano em São Paulo" width="500" height="281">
+            </div>
+            <div class="text-container">
+                <h2 id="titulo-transporte">6. Transporte: Opções e dicas</h2>
+                <p>O Brasil tem ônibus, metrôs e trens. Conheça as opções da sua região e obtenha um cartão de transporte.</p>
+                <ul>
+                    <li><a href="https://bilheteunico.sptrans.com.br/" target="_blank" rel="noopener noreferrer">Bilhete Único - São Paulo</a></li>
+                    <li><a href="https://www.metro.sp.gov.br/" target="_blank" rel="noopener noreferrer">Metrô de São Paulo</a></li>
+                    <li><a href="https://www.cptm.sp.gov.br/" target="_blank" rel="noopener noreferrer">CPTM - Trens Metropolitanos</a></li>
+                    <li><a href="https://www.emtu.sp.gov.br/" target="_blank" rel="noopener noreferrer">EMTU - Ônibus Intermunicipais</a></li>
+                </ul>
+                <p>Dicas importantes:</p>
+                <ul>
+                    <li>Baixe aplicativos de transporte público da sua cidade</li>
+                    <li>Mantenha sempre créditos no cartão de transporte</li>
+                    <li>Verifique os horários de funcionamento</li>
+                    <li>Em grandes cidades, evite horários de pico se possível</li>
+                </ul>
+                <p>Para viagens interestaduais:</p>
+                <ul>
+                    <li><a href="https://www.clickbus.com.br" target="_blank" rel="noopener noreferrer">ClickBus - Passagens Rodoviárias</a></li>
+                    <li><a href="https://www.buscaonibus.com.br" target="_blank" rel="noopener noreferrer">Busca Ônibus - Comparador de Preços</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ✅ ONGs agora dentro do <main> -->
+        <section id="ongs" class="ong-section" aria-labelledby="titulo-ongs">
+            <h2 id="titulo-ongs">ONGs de Apoio a Migrantes</h2>
+            <div class="ong-buttons">
+                <a href="https://www.caritas.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">Cáritas Brasil</span>
+                    <span class="ong-description">Assistência humanitária e apoio a refugiados</span>
+                </a>
+                <a href="https://www.migrante.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">Centro de Apoio ao Migrante</span>
+                    <span class="ong-description">Orientação jurídica e social</span>
+                </a>
+                <a href="https://www.adus.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">ADUS - Instituto de Reintegração</span>
+                    <span class="ong-description">Integração laboral e cultural</span>
+                </a>
+                <a href="https://www.missaopaz.org/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">Missão Paz</span>
+                    <span class="ong-description">Apoio integral a migrantes</span>
+                </a>
+                <a href="https://www.acnur.org/portugues/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">ACNUR Brasil</span>
+                    <span class="ong-description">Alto Comissariado da ONU para Refugiados</span>
+                </a>
+                <a href="https://educacaosemfronteiras.org.br/" target="_blank" rel="noopener noreferrer" class="ong-button">
+                    <span class="ong-name">Educação Sem Fronteiras</span>
+                    <span class="ong-description">Apoio educacional para migrantes</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ✅ novalidate + JS para tratar o submit sem recarregar -->
+        <section id="contato" class="contact-section" aria-labelledby="titulo-contato">
+            <h2 id="titulo-contato">Fale Conosco</h2>
+            <p>Tem dúvidas ou sugestões? Envie uma mensagem!</p>
+            <form id="contact-form" novalidate class="contact-form">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Enviar Mensagem</button>
+            </form>
+        </section>
+
     </main>
 
     <footer>
         <p>&copy; 2025 | Dicas de quem já passou por isso 😊</p>
         <div style="margin-top: 0.5rem; font-size: 0.9rem;">
-            <a href="https://educacaosemfronteiras.org.br/" target="_blank" style="color: #80cbc4;">Este projeto é uma proposta da <strong>Educação Sem Fronteiras</strong>.</a>
+            <a href="https://educacaosemfronteiras.org.br/" target="_blank" rel="noopener noreferrer" style="color: #80cbc4;">
+                Este projeto é uma proposta da <strong>Educação Sem Fronteiras</strong>.
+            </a>
         </div>
         <p>Feito por: <em>LIZZA MENDEZ</em></p>
-    </footer>   
+    </footer>
 
-    <!-- Botão Voltar ao Topo -->
     <button id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
 </body>
 </html>
