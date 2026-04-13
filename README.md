@@ -87,3 +87,5 @@ Desenvolvedora em formação | Imigrante paraguaia em São Paulo
 ---
 
 *Projeto autoral desenvolvido como prática de desenvolvimento web, com foco em impacto social e aprendizado técnico contínuo.*
+
+MIT License o CC BY-SA 4.0 (recomendado para contenido educativo)
