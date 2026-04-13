@@ -1,85 +1,88 @@
-// verificar preferencia del sistema si no hay tema guardado
-if (!localStorage.getItem('theme')) {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        updateThemeButton('dark');
-    }
+// ─── Tema ────────────────────────────────────────────────────────────────────
+
+function updateThemeButton(theme) {
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = theme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Escuro';
 }
 
-
-const toggleButton = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    toggleButton.textContent = '☀️ Modo Claro';
-}
-
-toggleButton.addEventListener('click', () => {
-    let theme = 'light';
-    if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+function applyTheme(theme) {
+    if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        toggleButton.textContent = '☀️ Modo Claro';
-        theme = 'dark';
     } else {
         document.documentElement.removeAttribute('data-theme');
-        toggleButton.textContent = '🌙 Modo Escuro';
     }
-    localStorage.setItem('theme', theme);
-});
-
-// Lógica do botão Voltar ao Topo
-const backToTopButton = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-    // Mostrar el botón si bajamos más de 300px
-    if (window.scrollY > 300) {
-        backToTopButton.classList.add('visible');
-    } else {
-        backToTopButton.classList.remove('visible');
-    }
-});
-
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Lógica de Idiomas
-function setLanguage(lang) {
-    // Actualizar atributo lang del HTML
-    document.documentElement.lang = lang;
-    localStorage.setItem('lang', lang);
-    
-    // Ocultar todos los elementos de idioma
-    document.querySelectorAll('[class*="lang-"]').forEach(el => {
-        el.style.display = 'none';
-    });
-    
-    // Mostrar solo los del idioma seleccionado
-    const langCode = lang.split('-')[0]; // pt-BR → pt
-    document.querySelectorAll(`.lang-${langCode}`).forEach(el => {
-        el.style.display = ''; // Mostrar (resetear display)
-    });
-    
-    // Actualizar estado visual de los botones
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.setAttribute('aria-pressed', 'false');
-        btn.style.opacity = '0.7';
-    });
-    const activeBtn = document.querySelector(`.lang-btn[onclick*="${lang}"]`);
-    if (activeBtn) {
-        activeBtn.setAttribute('aria-pressed', 'true');
-        activeBtn.style.opacity = '1';
-        activeBtn.style.fontWeight = 'bold';
-    }
+    updateThemeButton(theme);
 }
 
-// Ejecutar al cargar la página
+function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+        applyTheme(saved);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark');
+    }
+
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const next = isDark ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    });
+}
+
+// ─── Voltar ao Topo ───────────────────────────────────────────────────────────
+
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ─── Idiomas ──────────────────────────────────────────────────────────────────
+
+function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+
+    const langCode = lang.split('-')[0]; // "pt-BR" → "pt"
+
+    // Ocultar/mostrar via classe CSS em vez de style inline
+    document.querySelectorAll('[class*="lang-"]').forEach(el => {
+        el.hidden = true;
+    });
+    document.querySelectorAll(`.lang-${langCode}`).forEach(el => {
+        el.hidden = false;
+    });
+
+    // Atualizar botões (só aria-pressed; o CSS cuida do visual)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.setAttribute('aria-pressed', 'false');
+    });
+    document.querySelector(`.lang-btn[onclick*="${lang}"]`)
+        ?.setAttribute('aria-pressed', 'true');
+}
+
+// ─── Inicialização ────────────────────────────────────────────────────────────
+
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('lang') || 'pt-BR';
-    setLanguage(savedLang);
+    initTheme();
+    initBackToTop();
+    initContactForm();
+    setLanguage(localStorage.getItem('lang') || 'pt-BR');
 });
+
+function initContactForm() {
+    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault(); // ✅ Evita recarregar a página
+        // Aqui você pode enviar os dados via fetch() para um backend
+        alert('Mensagem enviada! Obrigado pelo contato.');
+        e.target.reset();
+    });
+}
